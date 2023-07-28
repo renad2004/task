@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<head>
+      <link rel="stylesheet"href="css/">
+    <title>Document</title>
+    <style>
+      .list{
+        display: flex;
+justify-content: space-evenly;
+margin-top: 2%;
+margin-left: 5%;
+      }
+      li{
+        display: flex;
+        list-style: none;
+        }
+      #btn1{
+        margin-top: 3%;
+        margin-left:43%;
+        width: 150px;
+        height: 50px;
+        background-color: hwb(33 52% 45% / 0.432);
+        font-size: 20px;
+        border: none;
+        border-radius: 10%;
+        display: none;
+      }
+      #btn1 a{
+        text-decoration: none;
+        color: black;
+      }
+      #btn1:hover{
+        background-color: hwb(33 64% 32% / 0.432);
+      }
+      h4{
+        margin-top: 105%;
+        margin-left: -40%;
+      }
+    </style>
+</head>
+<body> <div> 
+  <ul class="list">
+    <li price="120"><img src="img1.jpg" height="250px"><h4> t-shirt xl </h4></li>
+    <li price="130"><img src="img2.jpg" height="250px"><h4> t-shirt xll </h4></li>
+    <li price="110"><img src="img5.jpg" height="250px"><h4> t-shirt x </h4></li> 
+     <li price="127"><img src="img4.jpg" height="250px"><h4> t-shirt sl </h4></li></ul></div>
+     <ul class="list">
+
+    <li price="120"><img src="img1.jpg" height="250px"><h4> t-shirt xl </h4></li>
+    <li price="130"><img src="img2.jpg" height="250px"><h4> t-shirt sl </h4></li>
+    <li price="110"><img src="img5.jpg" height="250px"><h4> t-shirt x </h4></li>
+    <li price="127"><img src="img4.jpg" height="250px"><h4> t-shirt s </h4></li>
+  </ul>
+  <div id="content"></div>
+  <button id="btn1"> <a href="#">show price</a> </button>
+  <!-- <div id="add"></div> -->
+<script>
+ var allproducts = document.querySelectorAll(".list li")
+
+var content = document.querySelector("#content")
+
+var btn =document.querySelector("#btn1")
+
+var totalPrice = 0
+
+// var add=document.querySelector("price")
+allproducts.forEach(function(item){ 
+  item.onclick=function (){
+    totalPrice  += +(item.getAttribute("price"))
+    content.innerHTML += item.textContent + " \\ "
+    if (content.innerHTML != "" ){
+            btn.style.display = "block";
+             
+        }
+     }
+ })
+ btn.onclick = function () {
+     console.log(totalPrice)
+ }
+ </script>
+</body>
+</html>
+
+
+
+
+<!-- <script src="js/bootstrap.bundle.min.js"></script>
+//     <script src="js/all.min.js"></script> -->
